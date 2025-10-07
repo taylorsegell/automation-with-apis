@@ -31,29 +31,133 @@ This lab serves to bridge the gap between manual understanding and operational e
 
 ---
 
-## Accessing the Cloud Pak for Data Environment
+### Log in to the OpenShift Console
+---
+Follow the instructions in this step to locate the **Redhat OpenShift** console URL and credentials to log in to the **RedHat OpenShift** environment that has been successfully provisioned and that TechZone has provided a **notification email** informing you that the reservation for the environment is **Ready**. These instructions will also show how to monitor the installation of **Cloud Pak for Data** and how to locate the **Cloud Pak for Data** console route (URL) and credentials to log in to the **Cloud Pak for Data** console.
 
-To begin, you will log into the environment and navigate to the Cloud Pak for Data platform where the lab will be conducted. 
+Check the email account associated with your **TechZone** account and look for an email with the subject: **[EXTERNAL] Reservation Transferred on IBM Technology Zone** with a Status: **Ready**. This is a TechZone **pre-warmed** environment so the email says it was **Transferred** because the environment was transferred from the **pre-warmed** pool of ready environments. It will look similar to the screenshot below.
 
-> **Note:** In this portion of the course we will be working as the **Admin**. Use the log in information below to enter the platform.
+> If you use the Microsoft Outlook web client for email, the email might be placed in the **Other** tab in your inbox so make sure you check the **Other** tab if you don't see it in the **Focused** tab. Make note of the **Reservation Name** because there may be multiple reservations in your TechZone account. Your reservation name may be different from the name depicted in the screenshot below if you chose to change the name of the reservation in the previous step.
 
-1.  **Copy** and **Paste** the following into **Username:**
+1. Click the **View My Reservations** button.
 
-```
-admin
-```
+![](images/image4.png)
 
-2.  **Copy** and **Paste** the following into **Password:**
+ > If prompted, and depending on the authentication method you are presented with, enter your IBMId or IBM w3id and password.
 
-```
-adminuser
-```
+ As mentioned previously, it is more than likely that you will have multiple reservations in your TechZone account like the screenshot below. So, make sure the reservation you are instructed to select in the following step is for the **watsonx.data intelligence Level 4 Labs** environment you just reserved, and make sure the reservation status is set to **Ready**.
 
-![Admin Login](images/api-admin-login.png)
+2. Click the **Open this environment** button on the **watsonx.data intelligence Level 4 Labs** environment to view the details of the reservation.
 
-3. Click **Continue**
+![](images/image5.png)
 
-> This will take you to the Software Hub home page. Since this lab takes place inside of **Cloud Pak for Data** we will need to navigate there. 
+---
+
+> **Keep this tab open in your browser**. You will be instructed to come back to this tab to retrieve the **Bastion** SSH Connection URL, Username, and Password to **SSH** (Secure Shell) into the **Bastion** node for this environment in the [Apply Data Intelligence Patch](#apply-data-intelligence-patch) step at the end of this lab.
+
+3. Click the **copy** button next to the password field to copy the **kubeadmin** password to the clipboard.
+4. Click the **Open your OCP-V on IBM Cloud environment** button.
+
+![](images/image6.png)
+
+---
+
+5. Click the **kube:admin** button to Login as the **kubeadmin** user.
+
+![](images/image7.png)
+
+---
+
+6. Enter **kubeadmin** for the Username.
+7. Paste the **password** that was copied to the clipboard in the previous step into the Password field.
+8. Click the **Log in** button.
+
+![](images/image8.png)
+
+---
+
+> **Keep this tab open in your browser**. You will be instructed to come back to this tab to retrieve the **OC Login Token** to login to the cluster as the cluster administrator in the [Apply Data Intelligence Patch](#apply-data-intelligence-patch) step at the end of this lab.
+
+Upon entering the console, there will be a **Notification** bat at the top of the page indicating the status of the **Cloud Pak Deployer** Pipeline run and the environment:
+
+A **Green** message bar that reads: **'Pipeline configure-deployer ran successfully. Please check the logs to view the login details. <u>here</u>'** means the environment is ready for use and the log will contain the **Cloud Pak for Data** URL and admin password.
+
+![](images/image9.png)
+
+> This is the state that is expected and will almost always be the case with a few exceptions, as noted below.
+
+---
+
+A **Red** message bar that reads: **'Pipeline failed configure-deployer. Please try and rerun the pipeline by clicked Action -> Rerun. <u>here</u>'** means the **Cloud Pak Deployer** encountered a problem or the **Cloud Pak for Data** installation failed and the log will contain the error messages and reason for failure.
+
+![](images/image10.png)
+
+<Warning>
+This is a very unlikely scenario because all the environments are pre-warmed environments that are continuously validated. If TechZone finds a failed environment in the queue, the system deletes it and re-creates a new one in the queue. If the environment has a **Red** banner indicating it has failed, the best course of action is to delete the reservation and request a new one from the queue.
+</Warning>
+
+---
+
+A **Blue** message bar that reads: **'cloud-pak-deployer-5.1.x is still running. Please check the status <u>here</u>'** means the **Cloud Pak for Data** installation is still in progress and the environment is not ready for use so you will need to come back when it is completed.
+
+![](images/image11.png)
+
+> This is a likely scenario because even though all the environments are pre-warmed environments, when the pre-warmed pool has expired because it has not been used very often or the pool is heavily used and has been depleted. When this happens the next environment reserved happens to be the first environment in the pool and that environment has to be created before the pool is replenished.
+
+In any case, **Do not** click on the **<u>here</u>** link on the message bar. Instead of clicking on the **<u>here</u>** link, which is only provided for **Cloud Pak Deployer** OCP-V clusters, and will open up yet another tab in your browser, the instructions below provide a different method that will show technical sellers how to navigate the **Redhat OpenShift** console to get to the **Cloud Pak Deployer** Pipeline to view the log.
+
+9. From the left side menu, click the **Pipelines** menu to open it, and select the **Pipelines** sub-menu.
+
+![](images/image12.png)
+
+---
+
+10. Click the **PipelineRuns** tab.
+11. Click the **configure-deployer** pipeline run (there should only be one Pipeline run in the list).
+
+![](images/image13.png)
+
+---
+
+12. Click the **Logs** tab.
+
+![](images/image14.png)
+
+
+On the left side of the logs tab, the log is broken down into sections that convey the different steps that the **Cloud Pak Deployer** executed to install **IBM Software Hub** and all the **Cloud Pak for Data** services.
+
+> The following screenshot is informational for environments that have a **Blue** status banner. Upon entering the log tab you might be taken to the **run-cloud-pak-deployer** section of the log (the current step that is being executed) with a long list of **Waiting for job to be Complete.** messages displayed and the **run-cloud-pak-deployer** menu items depicting a series of blue dots indicating the deployer is still running. This means **Cloud Pak Deployer** is still running and **Cloud Pak for Data** is not fully installed and that the environment is **not ready**.
+
+![](images/image15.png)
+
+This is **very unlikely** because these environments are TechZone **pre-warmed** environments. However, as mentioned previously, it can happen occasionally if the pre-warmed environment pool has expired because it has not been used very often or the pool is heavily used and has been depleted. In which case, you will have to wait until the **Cloud Pak for Data** and the **watsonx.data intelligence** services for the environment are fully installed and ready and the banner status turns to **Green**.
+
+---
+
+When the environment is fully ready, the log will look like the screen shot below. When all the log menus have a **green check mark** and you see the **update-configmap-success** log step (the very last step in the log menu) with a green check mark next to it, and it contains the **Cloud Pak for Data** Console Route, Username, and Password, the **Cloud Pak for Data** installation is complete!
+
+13. Select the the **Password**, right mouse click, and select **Copy**. This will copy the password to the clipboard.
+14. Select the **Console Route**, right mouse click, and select **Open link in new tab**. This will open the **Cloud Pak for Data** console in a new tab in the browser.
+
+![](images/image16.png)
+
+
+### Log in to Cloud Pak for Data
+---
+You should be now be in the new tab that was just opened from the **Redhat OpenShift** console with the **Cloud Pak for Data** console ready to log in. You will log in using the **admin** user and password you just obtained from the pipeline in the Redhat OpenShift console.
+
+1. Enter **admin** for the Username.
+2. Paste the **password** you copied to the clipboard in the previous step into the Password field.
+3. Click the **Continue** button.
+
+![](images/image17.png)
+
+---
+
+You should now be logged in as **admin** with a **Welcome to the Administration Console, admin!** message within the **IBM Software Hub** perspective.
+
+![](images/image18.png)
+
 
 4. From the main Software Hub, use the application switcher icon (top left).
 

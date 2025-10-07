@@ -7,7 +7,7 @@ title: "API Automation Lab Guide"
 
 ## Introduction
 
-Congratulations on reaching the final lab in our watsonx.data intelligence course! Throughout this program, you have gained hands-on experience with the entire data intelligence lifecycle. You’ve manually established governance policies by creating a business glossary, connected to diverse data sources, executed metadata imports to understand your data landscape, and run data profiling and enrichment to improve data quality and business context. Finally, you learned how to publish those trusted, high-quality assets to the catalog for broader consumption.
+Congratulations on reaching the final lab in our watsonx.data intelligence course! Throughout this program, you have gained hands-on experience with the entire data intelligence lifecycle. You've manually established governance policies by creating a business glossary, connected to diverse data sources, executed metadata imports to understand your data landscape, and run data profiling and enrichment to improve data quality and business context. Finally, you learned how to publish those trusted, high-quality assets to the catalog for broader consumption.
 
 While performing these tasks manually is crucial for understanding the foundational concepts, it is not a scalable approach for enterprise operations. The true value of a data fabric is realized when these workflows are made repeatable, consistent, and efficient through automation. This is where the Watson Data API becomes indispensable.
 
@@ -49,7 +49,7 @@ admin
 adminuser
 ```
 
-![](images/api-admin-login.png)
+![Admin Login](images/api-admin-login.png)
 
 3. Click **Continue**
 
@@ -59,7 +59,7 @@ adminuser
 
 5. Once the dropdown opens select **Cloud Pak for Data** to navigate to the home page.
 
-![](images/api-admin-switch-cpd.png)
+![Switch to Cloud Pak for Data](images/api-admin-switch-cpd.png)
 
 ---
 
@@ -73,11 +73,11 @@ The first step is to create a catalog. A catalog acts as a centralized, governed
 
 1.  From the Cloud Pak for Data navigation menu (**☰**), select **Catalogs -> All Catalogs**.
 
-![](images/api-create-catalog.png)
+![Create Catalog](images/api-create-catalog.png)
 
 2.  Click the **New catalog** button in the upper-right corner.
 
-![](images/api-new-catalog.png)
+![New Catalog Button](images/api-new-catalog.png)
 
 3.  Give the catalog a **Name**, or copy and paste:
 
@@ -89,14 +89,14 @@ Automation
 
 5. Click **Create** to provision the catalog.
 
-![](images/api-automation-catalog.png)
+![Automation Catalog Creation](images/api-automation-catalog.png)
 
 
 > For this lab, you can leave the rest of the settings as the defaults. 
 
 6.  The **Automation** catalog will now appear in your list of available catalogs. Return to the main dashboard by clicking the **IBM Cloud Pak for Data** in the upper left hand corner.
 
-![](images/api-catalog-return-home.png)
+![Return to Home](images/api-catalog-return-home.png)
 
 ### Create the Automation Project
 
@@ -104,11 +104,11 @@ Next, you will create a project. Projects are collaborative workspaces in watson
 
 1.  From the navigation menu (**☰**), select **Projects -> All projects**.
 
-![](images/api-all-projects.png)
+![All Projects](images/api-all-projects.png)
 
 2.  Click **New project +**.
 
-![](images/api-new-project.png)
+![New Project Button](images/api-new-project.png)
 
 3.  Next you will need to define the project details, **Copy** and **Paste** into the **Name:** 
 
@@ -124,7 +124,7 @@ This project houses the assets used in the API Automation Lab.
 
 5. Click **Create**.
 
-![](images/api-create-project.png)
+![Create Project](images/api-create-project.png)
 
 ---
 
@@ -134,11 +134,11 @@ The Jupyter Notebook requires the unique identifier for your project to interact
 
 6.  Within your newly created project, navigate to the **Manage** tab.
 
-![](images/api-project-manage.png)
+![Project Manage Tab](images/api-project-manage.png)
 
 7.  Under the **General -> Details** section, locate the **Project ID**. Click the copy icon to copy the ID to your clipboard and save it for a later step.
 
-![](images/api-copy-project-id.png)
+![Copy Project ID](images/api-copy-project-id.png)
 
 ---
 
@@ -171,26 +171,26 @@ Both paths will bring you to the **Create a notebook** screen. From here, comple
 1.  Select the **URL** tab in the lefthand sidebar.
 2.  **Copy** and **Paste** the following into the **Name** field:
 
-```markdown
+```
 API Automation Lab
 ```
 
 3.  **Copy** and **Paste** the GitHub URL below into the **Notebook URL** field:
 
-```markdown
+```
 https://raw.githubusercontent.com/taylorsegell/L4-Deploy/refs/heads/main/Lab/API%20Automation%20with%20CPD.ipynb
 ```
 4. Enter an optional **Description**
 
 5.  Click **Create**.
 
-![](images/api-import-notebook.png)
+![Import Notebook](images/api-import-notebook.png)
 
 The final setup step is to launch the notebook you have just imported.
 
 6.  Locate the notebook in your project's asset list. To open the notebook and begin the hands-on portion of the lab, click the **edit (pencil) icon**.
 
-![](images/api-unlock-notebook.png)
+![Open Notebook](images/api-unlock-notebook.png)
 
 > **Important:** This concludes the environment setup. The subsequent steps of the lab are to be completed within the Jupyter Notebook you have just opened.
 
@@ -252,4 +252,5 @@ COS_RESOURCE_INSTANCE_ID="crn:v1:bluemix:public:cloud-object-storage:global:a/fe
 COS_DATASOURCE_TYPE="193a97c1-4475-4a19-b90c-295c4fdc6517"
 
 ORIGIN_COUNTRY="us"
+```
 ```
