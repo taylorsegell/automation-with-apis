@@ -39,17 +39,6 @@ Check the email account associated with your **TechZone** account and look for a
 
 > If you use the Microsoft Outlook web client for email, the email might be placed in the **Other** tab in your inbox so make sure you check the **Other** tab if you don't see it in the **Focused** tab. Make note of the **Reservation Name** because there may be multiple reservations in your TechZone account. Your reservation name may be different from the name depicted in the screenshot below if you chose to change the name of the reservation in the previous step.
 
-1. Click the **View My Reservations** button.
-
-![](images/image4.png)
-
- > If prompted, and depending on the authentication method you are presented with, enter your IBMId or IBM w3id and password.
-
- As mentioned previously, it is more than likely that you will have multiple reservations in your TechZone account like the screenshot below. So, make sure the reservation you are instructed to select in the following step is for the **watsonx.data intelligence Level 4 Labs** environment you just reserved, and make sure the reservation status is set to **Ready**.
-
-2. Click the **Open this environment** button on the **watsonx.data intelligence Level 4 Labs** environment to view the details of the reservation.
-
-![](images/image5.png)
 
 ---
 
