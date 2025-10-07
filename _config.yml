@@ -1,0 +1,33 @@
+title: "Automation with APIs Lab"
+description: "Automating watsonx.data intelligence with the Watson Data API"
+author: "Taylor Segell"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# GitHub Pages settings
+url: "https://taylorsegell.github.io"
+baseurl: "/automation-with-apis"
+
+# Collections and defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
