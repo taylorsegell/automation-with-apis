@@ -39,6 +39,13 @@ Check the email account associated with your **TechZone** account and look for a
 
 > If you use the Microsoft Outlook web client for email, the email might be placed in the **Other** tab in your inbox so make sure you check the **Other** tab if you don't see it in the **Focused** tab. Make note of the **Reservation Name** because there may be multiple reservations in your TechZone account. Your reservation name may be different from the name depicted in the screenshot below if you chose to change the name of the reservation in the previous step.
 
+1. Login with your IBMid
+
+2. Enter this Access Code to recieve an environment
+
+```
+techx2332-c7d8
+```
 
 ---
 
